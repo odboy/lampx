@@ -96,8 +96,11 @@ By default following extensions are installed.
 ## MySql
 
 root password: LampxPass
+
 database: webdb
+
 user: admin
+
 password: lampxpass
 
 ## phpMyAdmin
