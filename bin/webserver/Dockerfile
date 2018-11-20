@@ -9,7 +9,7 @@ RUN apt-get -y install --fix-missing apt-utils vim nano wget dialog \
     zlib1g-dev libicu-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
     && rm -rf /var/lib/apt/lists/*
 # Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -fsS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
 RUN curl https://xdebug.org/files/xdebug-2.5.5.tgz -o /tmp/xdebug-2.5.5.tgz \
