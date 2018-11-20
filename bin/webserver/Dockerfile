@@ -1,13 +1,14 @@
 FROM php:5.3-apache
 
-RUN apt-get -y update && apt-get upgrade -y
+COPY sources.list /etc/apt/sources.list
 
 # Install tools && libraries
-RUN apt-get -y install --fix-missing apt-utils vim nano wget dialog \
+RUN apt-get -y update && apt-get upgrade -y \
+    && apt-get -y install --fix-missing apt-utils vim nano wget dialog \
     build-essential git curl libcurl3 libcurl3-dev zip \
     libmcrypt-dev libsqlite3-dev libsqlite3-0 mysql-client \
-    zlib1g-dev libicu-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
-    && rm -rf /var/lib/apt/lists/*
+    zlib1g-dev libicu-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev
+
 # Composer
 RUN curl -fsS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
