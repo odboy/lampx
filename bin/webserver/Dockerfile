@@ -1,4 +1,4 @@
-FROM php:5.5-apache
+FROM php:5.3-apache
 
 RUN apt-get -y update && apt-get upgrade -y
 
@@ -12,8 +12,8 @@ RUN apt-get -y install --fix-missing apt-utils vim nano wget dialog \
 RUN curl -fsS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN curl https://xdebug.org/files/xdebug-2.5.5.tgz -o /tmp/xdebug-2.5.5.tgz \
-    && pecl install /tmp/xdebug-2.5.5.tgz \
+RUN curl https://xdebug.org/files/xdebug-2.2.7.tgz -o /tmp/xdebug-2.2.7.tgz \
+    && pecl install /tmp/xdebug-2.2.7.tgz \
     && docker-php-ext-enable xdebug
 
 # PHP5 Extensions

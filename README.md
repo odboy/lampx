@@ -3,7 +3,7 @@
 This is a basic LAMP stack environment built using Docker Compose. It consists following:
 
 * Base on Debian GNU/Linux 8 (jessie)
-* PHP 5.5
+* PHP 5.3
 * Apache 2.4
 * MySQL 5.7
 * phpMyAdmin
@@ -76,7 +76,7 @@ docker exec -it web /bin/bash
 
 By default following extensions are installed.
 
-* xdebug 2.5.5
+* xdebug 2.2.7
 * mysqli
 * mbstring
 * zip
