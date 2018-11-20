@@ -2,6 +2,7 @@
 
 This is a basic LAMP stack environment built using Docker Compose. It consists following:
 
+* Base on Debian GNU/Linux 9 (stretch)
 * PHP 7.2
 * Apache 2.4
 * MySQL 5.7
@@ -70,10 +71,6 @@ You can connect to web server using `docker exec` command to perform various ope
 docker exec -it web /bin/bash
 ```
 
-## PHP
-
-The installed version of PHP is 7.2
-
 #### Extensions
 
 By default following extensions are installed.
@@ -94,10 +91,15 @@ By default following extensions are installed.
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`. 
 > You have to rebuild the docker image by running `docker-compose build` and restart the docker containers.
 
+## MySql
+
+root password: LampxPass
+database: webdb
+user: admin
+password: lampxpass
+
 ## phpMyAdmin
 
-phpMyAdmin is configured to run on port 8080. Use following default credentials.
+phpMyAdmin is configured to run on port 8080. 
 
-http://localhost:8080/  
-username: root  
-password: CodePass
+http://localhost:8080/

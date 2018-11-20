@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title><?php echo "hello LAMPX"; ?></title>
+        <title><?php echo "hello LAMPX 7.2"; ?></title>
     </head>
     <body>
 
