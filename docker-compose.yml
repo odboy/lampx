@@ -4,7 +4,7 @@ services:
   webserver:
     build: 
       context: ./bin/webserver
-    container_name: 'web'
+    container_name: 'web_${VERSION}'
     restart: 'always'
     ports:
       - "80:80"
@@ -18,7 +18,7 @@ services:
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
   mysql:
     build: ./bin/mysql
-    container_name: 'mysql5.7'
+    container_name: 'mysql_${VERSION}'
     restart: 'always'
     ports:
       - "3306:3306"
@@ -32,7 +32,7 @@ services:
       MYSQL_PASSWORD: lampxpass
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: 'phpmyadmin'
+    container_name: 'phpmyadmin_${VERSION}'
     links:
       - mysql
     environment:
