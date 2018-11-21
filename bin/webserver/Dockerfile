@@ -3,7 +3,7 @@ FROM php:5.5-apache
 COPY sources.list /etc/apt/sources.list
 
 # Install tools && libraries
-RUN apt-get -y update && apt-get upgrade -y \
+RUN apt-get -y update \ 
     && apt-get -y install --fix-missing apt-utils vim nano wget dialog \
     build-essential git curl libcurl3 libcurl3-dev zip \
     libmcrypt-dev libsqlite3-dev libsqlite3-0 mysql-client \
