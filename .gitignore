@@ -1,2 +1,9 @@
+/data/mysql/*
+/logs/apache2/*
+/logs/mysql/*
+/www/*
+!/www/index.php
+!/www/phpinfo.php
+!/test_db.php
 /.vscode
 .DS_Store
