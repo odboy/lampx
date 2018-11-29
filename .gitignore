@@ -5,5 +5,6 @@
 !/www/index.php
 !/www/phpinfo.php
 !/test_db.php
-/.vscode
+.vscode
+.idea
 .DS_Store

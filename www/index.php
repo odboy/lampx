@@ -1,48 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title><?php echo "hello LAMPX 5.6"; ?></title>
-    </head>
-    <body>
+<?php
+define('in_mx', TRUE);
 
-    <div>
-        <div>
-            <h3>Environment</h3>
-            <hr>
-            <div>
-                <ul>
-                    <li><?= apache_get_version(); ?></li>
-                    <li>PHP <?= phpversion(); ?></li>
-                    <li>
-                        <?php
-                        $link = mysqli_connect("mysql", "root", "LampxPass", null);
+$ym_version='1.2.2';
+$p=isset($_GET['p']) ? addslashes($_GET['p']) : '';
+$p=(trim($p)=='') ? 'index' : trim($p);
 
-                        /* check connection */
-                        if (mysqli_connect_errno()) {
-                            printf("MySQL connecttion failed: %s", mysqli_connect_error());
-                        } else {
-                            /* print server version */
-                            printf("MySQL Server %s", mysqli_get_server_info($link));
-                        }
-                        /* close connection */
-                        mysqli_close($link);
-                        ?>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div>
-            <h3>Quick Links</h3>
-            <hr>
-            <div>
-                <ul>
-                    <li><a href="http://localhost/phpinfo.php">phpinfo()</a></li>
-                    <li><a href="http://localhost:8080">phpMyAdmin</a></li>
-                    <li><a href="http://localhost/test_db.php">Test DB Connection</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+require("./inc/function/global.php");
+
+switch ($p){
+	case 'admin':
+		include("./inc/function/global_admin".Ext);
+		exit();
+    break;
+    case 'install':
+		require("./install/index".Ext);
+		exit();
+    break;
+    default:
+		if(strpos($p, "n-")===0 || $ym_url_path[0] === 'news'){
+			include("./inc/function/global_news".Ext);
+		}
+		else{
+			include("./inc/function/global_page".Ext);
+		}
+    break;
+}
+
+?>
